@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Car Rental</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+           <div class="logo">Car Rental</div>
+
+<button class="menu-btn" id="menuBtn">☰</button>
+
+<ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cars.html">Cars</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <button id="darkModeBtn">🌙</button>
+        </nav>
+    </header>
+    
+
+   <section class="hero">
+
+    <div class="hero-content">
+        <h1 id="heroTitle">Rent Your Dream Car</h1>
+
+        <p id="heroText">
+            Choose from a wide range of cars and enjoy a smooth,
+            comfortable journey.
+        </p>
+
+        <a href="cars.html" class="hero-btn">
+            Explore Cars
+        </a>
+    </div>
+
+    <button id="prevSlide" class="slider-btn prev-btn">
+        &#10094;
+    </button>
+
+    <button id="nextSlide" class="slider-btn next-btn">
+        &#10095;
+    </button>
+</section>
+        <section class="featured-cars">
+    <div class="section-title">
+        <h2>Featured Cars</h2>
+        <p>Choose the perfect car for your journey.</p>
+    </div>
+
+    <div class="car-container">
+
+        <div class="car-card">
+            <img src="images/car1.jpg" alt="BMW 3 Series">
+            <div class="car-info">
+                <h3>BMW 3 Series</h3>
+                <p>Luxury • Automatic • 5 Seats</p>
+                <h4>₹4,500 / Day</h4>
+                <a href="details.html" class="car-btn">View Details</a>
+            </div>
+        </div>
+
+        <div class="car-card">
+            <img src="images/car2.jpg" alt="Mercedes Benz C-Class">
+            <div class="car-info">
+                <h3>Mercedes Benz C-Class</h3>
+                <p>Luxury • Automatic • 5 Seats</p>
+                <h4>₹5,500 / Day</h4>
+                <a href="details.html" class="car-btn">View Details</a>
+            </div>
+        </div>
+
+        <div class="car-card">
+            <img src="images/car3.jpg" alt="Toyota Fortuner">
+            <div class="car-info">
+                <h3>Toyota Fortuner</h3>
+                <p>SUV • Automatic • 7 Seats</p>
+                <h4>₹4,000 / Day</h4>
+                <a href="details.html" class="car-btn">View Details</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+    <section class="rental-search">
+        <div class="section-title">
+            <h2>Find Your Perfect Car</h2>
+            <p>Enter your rental details and find a car that suits you.</p>
+        </div>
+
+    <form id="searchForm" class="search-form">
+
+        <div class="form-group">
+            <label for="pickupLocation">Pickup Location</label>
+            <input type="text" id="pickupLocation" placeholder="Enter pickup location" required>
+        </div>
+
+        <div class="form-group">
+            <label for="pickupDate">Pickup Date</label>
+            <input type="date" id="pickupDate" required>
+        </div>
+
+        <div class="form-group">
+            <label for="returnDate">Return Date</label>
+            <input type="date" id="returnDate" required>
+        </div>
+
+        <button type="submit" class="search-btn">Search Cars</button>
+
+    </form>
+
+    <p id="searchMessage"></p>
+
+</section>
+
+
+<section class="testimonials">
+
+    <div class="section-title">
+        <h2>What Our Customers Say</h2>
+        <p>See what our customers think about their experience.</p>
+    </div>
+
+    <div class="testimonial-container">
+
+        <div class="testimonial-card">
+            <p>
+                "The booking process was very easy and the car
+                was clean and comfortable."
+            </p>
+
+            <h3>Rahul</h3>
+            <span>Customer</span>
+        </div>
+
+        <div class="testimonial-card">
+            <p>
+                "Great selection of cars and excellent service.
+                I would definitely rent again."
+            </p>
+
+            <h3>Anita</h3>
+            <span>Customer</span>
+        </div>
+
+        <div class="testimonial-card">
+            <p>
+                "The entire experience was smooth and hassle-free.
+                Highly recommended!"
+            </p>
+
+            <h3>Arjun</h3>
+            <span>Customer</span>
+        </div>
+
+    </div>
+
+</section>
+   
+<section class="faq">
+
+    <div class="section-title">
+        <h2>Frequently Asked Questions</h2>
+        <p>Find answers to common questions about our car rental service.</p>
+    </div>
+
+    <div class="faq-container">
+
+        <div class="faq-item">
+            <button class="faq-question">
+                What documents do I need to rent a car?
+                <span>+</span>
+            </button>
+
+            <div class="faq-answer">
+                <p>
+                    You need a valid driving licence and a valid
+                    identification document.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                Can I cancel my booking?
+                <span>+</span>
+            </button>
+
+            <div class="faq-answer">
+                <p>
+                    Yes, bookings can be cancelled according to
+                    the applicable cancellation policy.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                Can I choose a specific car?
+                <span>+</span>
+            </button>
+
+            <div class="faq-answer">
+                <p>
+                    Yes. You can select your preferred car from
+                    our available vehicles.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                How do I make a booking?
+                <span>+</span>
+            </button>
+
+            <div class="faq-answer">
+                <p>
+                    Select a car, choose your rental dates,
+                    enter your details, and confirm your booking.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+ <button id="backToTop">↑</button>
+    <script src="js/script.js"></script>
+</body>
+</html>

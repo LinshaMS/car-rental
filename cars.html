@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cars - Car Rental</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">Car Rental</div>
+
+<button class="menu-btn" id="menuBtn">☰</button>
+
+<ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cars.html">Cars</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <button id="darkModeBtn">🌙</button>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="cars-page">
+            <div class="section-title">
+                <h1>Our Cars</h1>
+                <p>Choose the perfect car for your journey.</p>
+            </div>
+
+            <div class="car-controls">
+
+                <input
+                    type="text"
+                    id="carSearch"
+                    placeholder="Search for a car..."
+                >
+
+                <select id="categoryFilter">
+                    <option value="all">All Categories</option>
+                    <option value="Luxury">Luxury</option>
+                    <option value="SUV">SUV</option>
+                    <option value="Sedan">Sedan</option>
+                </select>
+
+                <select id="priceSort">
+                    <option value="default">Sort by Price</option>
+                    <option value="low-high">Price: Low to High</option>
+                    <option value="high-low">Price: High to Low</option>
+                </select>
+
+            </div>
+
+            <div id="carsContainer" class="car-container">
+                <!-- Cars will be added using JavaScript -->
+            </div>
+
+        </section>
+
+    </main>
+<button id="backToTop">↑</button>
+    <script src="js/script.js"></script>
+
+</body>
+</html>

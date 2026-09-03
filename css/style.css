@@ -1,0 +1,763 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #222;
+}
+
+.logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-links a:hover {
+    color: #f5c542;
+}
+
+#darkModeBtn {
+    border: none;
+    background: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.hero {
+    position:relative;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+                      url("../images/car-hero.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    color: white;
+    max-width: 700px;
+}
+
+.hero-content h1 {
+    font-size: 55px;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 14px 30px;
+    background-color: #f5c542;
+    color: #222;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.hero-btn:hover {
+    background-color: white;
+}
+.featured-cars {
+    padding: 70px 50px;
+    background-color: #f5f5f5;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: #666;
+}
+
+.car-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.car-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.car-card:hover {
+    transform: translateY(-8px);
+}
+
+.car-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.car-info {
+    padding: 20px;
+}
+
+.car-info h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.car-info p {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.car-info h4 {
+    margin-bottom: 15px;
+}
+
+.car-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #222;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.car-btn:hover {
+    background-color: #f5c542;
+    color: #222;
+}
+
+.rental-search {
+    padding: 70px 50px;
+    background-color: white;
+}
+
+.search-form {
+    max-width: 1100px;
+    margin: 30px auto 0;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) auto;
+    gap: 20px;
+    align-items: end;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.form-group input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.search-btn {
+    padding: 12px 22px;
+    border: none;
+    background-color: #222;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.search-btn:hover {
+    background-color: #f5c542;
+    color: #222;
+}
+
+#searchMessage {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+
+
+.cars-page {
+    padding: 70px 50px;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.car-controls {
+    max-width: 1100px;
+    margin: 30px auto 40px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.car-controls input,
+.car-controls select {
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.car-controls input {
+    width: 300px;
+}
+
+.car-controls select {
+    background-color: white;
+}
+
+#carsContainer {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.details-page {
+    min-height: 100vh;
+    padding: 70px 50px;
+    background-color: #f5f5f5;
+}
+
+.car-details {
+    max-width: 1000px;
+    margin: auto;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.car-details img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+}
+
+.details-info {
+    padding: 30px;
+}
+
+.details-info h1 {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.details-info p {
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: #555;
+}
+
+.details-price {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.book-btn {
+    display: inline-block;
+    padding: 13px 25px;
+    background-color: #222;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.book-btn:hover {
+    background-color: #f5c542;
+    color: #222;
+}
+
+
+
+.booking-page {
+    min-height: 100vh;
+    padding: 70px 20px;
+    background-color: #f5f5f5;
+}
+
+.booking-form {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 35px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.booking-form .form-group {
+    margin-bottom: 20px;
+}
+
+.booking-form input,
+.booking-form select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.booking-form small {
+    display: block;
+    margin-top: 5px;
+    color: red;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 5px;
+    background-color: #222;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #f5c542;
+    color: #222;
+}
+
+#bookingMessage {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+
+.about-page {
+    min-height: 100vh;
+    padding: 70px 50px;
+    background-color: #f5f5f5;
+}
+
+.about-content {
+    max-width: 1100px;
+    margin: 40px auto 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.about-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.about-text h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+
+.contact-page {
+    min-height: 100vh;
+    padding: 70px 20px;
+    background-color: #f5f5f5;
+}
+
+.contact-container {
+    max-width: 1000px;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.contact-info,
+.contact-form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info h2 {
+    margin-bottom: 25px;
+}
+
+.contact-info p {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 15px;
+    resize: vertical;
+}
+
+.contact-form textarea {
+    min-height: 140px;
+}
+
+.contact-form .submit-btn {
+    width: 100%;
+}
+
+
+@media (max-width: 768px) {
+
+     .navbar {
+        position: relative;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+    }
+
+    .menu-btn {
+        display: block;
+        margin-left: auto;
+        margin-right: 15px;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 20px 0;
+        background-color: #222;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+    .hero {
+        min-height: 500px;
+        padding: 30px 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 38px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    .featured-cars {
+        padding: 50px 20px;
+    }
+
+    .car-container {
+        grid-template-columns: 1fr;
+    }
+
+    .rental-search {
+        padding: 50px 20px;
+    }
+
+    .search-form {
+        grid-template-columns: 1fr;
+    }
+
+    .car-controls {
+        flex-direction: column;
+    }
+
+    .car-controls input {
+        width: 100%;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .booking-form {
+        padding: 25px;
+    }
+
+    .details-page {
+        padding: 50px 20px;
+    }
+
+    .car-details img {
+        height: 300px;
+    }
+
+        .testimonial-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+body.dark-mode .featured-cars,
+body.dark-mode .rental-search,
+body.dark-mode .cars-page,
+body.dark-mode .details-page,
+body.dark-mode .about-page,
+body.dark-mode .booking-page,
+body.dark-mode .contact-page {
+    background-color: #121212;
+}
+
+body.dark-mode .car-card,
+body.dark-mode .car-details,
+body.dark-mode .booking-form,
+body.dark-mode .contact-info,
+body.dark-mode .contact-form,
+body.dark-mode .search-form {
+    background-color: #1e1e1e;
+    color: white;
+}
+
+body.dark-mode .section-title p,
+body.dark-mode .car-info p,
+body.dark-mode .about-text p,
+body.dark-mode .contact-info p {
+    color: #ccc;
+}
+
+body.dark-mode .form-group input,
+body.dark-mode .form-group select,
+body.dark-mode .contact-form input,
+body.dark-mode .contact-form textarea {
+    background-color: #2a2a2a;
+    color: white;
+    border-color: #555;
+}
+
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.prev-btn {
+    left: 30px;
+}
+
+.next-btn {
+    right: 30px;
+}
+
+.slider-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.testimonials {
+    padding: 70px 50px;
+    background-color: #f5f5f5;
+}
+
+.testimonial-container {
+    max-width: 1100px;
+    margin: 40px auto 0;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.testimonial-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-8px);
+}
+
+.testimonial-card p {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.testimonial-card h3 {
+    margin-bottom: 5px;
+}
+
+.testimonial-card span {
+    color: #777;
+}
+
+.faq {
+    padding: 70px 20px;
+    background-color: white;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 40px auto 0;
+}
+
+.faq-item {
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 20px;
+    border: none;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.faq-question span {
+    font-size: 22px;
+}
+
+.faq-answer {
+    display: none;
+    padding: 20px;
+    background-color: white;
+}
+
+.faq-answer p {
+    color: #555;
+    line-height: 1.6;
+}
+
+#backToTop {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: #222;
+    color: white;
+
+    font-size: 22px;
+    cursor: pointer;
+
+    display: none;
+
+    z-index: 1000;
+}
+
+#backToTop:hover {
+    background-color: #f5c542;
+    color: #222;
+}
+
+.menu-btn {
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+@media (min-width: 769px) {
+    .menu-btn {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-btn {
+        display: block;
+        margin-left: auto;
+        margin-right: 15px;
+    }
+}

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Booking - Car Rental</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+           <div class="logo">Car Rental</div>
+
+<button class="menu-btn" id="menuBtn">☰</button>
+
+<ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cars.html">Cars</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <button id="darkModeBtn">🌙</button>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="booking-page">
+
+            <div class="section-title">
+                <h1>Book Your Car</h1>
+                <p>Fill in the details below to make your reservation.</p>
+            </div>
+
+            <form id="bookingForm" class="booking-form">
+
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input
+                        type="text"
+                        id="fullName"
+                        placeholder="Enter your full name"
+                        required
+                    >
+                    <small id="nameError"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+                    <small id="emailError"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="Enter 10-digit phone number"
+                        required
+                    >
+                    <small id="phoneError"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="carSelect">Select Car</label>
+
+                    <select id="carSelect" required>
+                        <option value="">Choose a car</option>
+                        <option value="BMW 3 Series">BMW 3 Series</option>
+                        <option value="Mercedes Benz C-Class">
+                            Mercedes Benz C-Class
+                        </option>
+                        <option value="Toyota Fortuner">
+                            Toyota Fortuner
+                        </option>
+                        <option value="Honda City">
+                            Honda City
+                        </option>
+                        <option value="Hyundai Creta">
+                            Hyundai Creta
+                        </option>
+                        <option value="Audi A4">
+                            Audi A4
+                        </option>
+                    </select>
+
+                    <small id="carError"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="bookingPickupDate">Pickup Date</label>
+                    <input
+                        type="date"
+                        id="bookingPickupDate"
+                        required
+                    >
+                    <small id="pickupError"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="bookingReturnDate">Return Date</label>
+                    <input
+                        type="date"
+                        id="bookingReturnDate"
+                        required
+                    >
+                    <small id="returnError"></small>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    Confirm Booking
+                </button>
+
+                <p id="bookingMessage"></p>
+
+            </form>
+
+        </section>
+
+    </main>
+<button id="backToTop">↑</button>
+    <script src="js/script.js"></script>
+
+</body>
+</html>
