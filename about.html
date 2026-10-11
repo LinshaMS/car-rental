@@ -1,76 +1,161 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>About Us - Car Rental</title>
-
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10151f">
+  <meta name="description" content="Discover the DriveEase car rental website concept and its features.">
+  <title>About | DriveEase</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
 </head>
-
 <body>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="DriveEase home">
+        <span class="brand-mark">D</span>
+        <span>DriveEase<span class="dot">.</span></span>
+      </a>
 
-    <header>
-        <nav class="navbar">
-           <div class="logo">Car Rental</div>
+      <button class="menu-toggle" type="button"
+        aria-label="Toggle navigation" aria-expanded="false">
+        ☰
+      </button>
 
-<button class="menu-btn" id="menuBtn">☰</button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="cars.html">Our Cars</a>
+        <a class="active" href="about.html" aria-current="page">About</a>
+        <a href="contact.html">Contact</a>
+        <a class="nav-cta" href="booking.html">Book a car ↗</a>
+      </div>
+    </nav>
+  </header>
 
-<ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="cars.html">Cars</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="booking.html">Booking</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
+  <main>
+    <section class="page-hero about-hero">
+      <div class="container">
+        <p class="eyebrow light">THE DRIVE EASE IDEA</p>
+        <h1>Good journeys start<br>with a better ride.</h1>
+        <p>
+          Less time figuring things out. More time looking forward
+          to where you're going.
+        </p>
+        <a class="btn primary about-hero-btn" href="cars.html">
+          Discover our cars <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
 
-            <button id="darkModeBtn">🌙</button>
-        </nav>
-    </header>
+    <section class="section container about-layout">
+      <div class="about-heading">
+        <p class="eyebrow">OUR APPROACH</p>
+        <h2>Less hassle.<br><span class="accent">More road ahead.</span></h2>
+      </div>
 
-    <main>
+      <div class="about-copy">
+        <p class="lead">
+          DriveEase is a car rental website concept designed to make
+          browsing vehicles and planning a trip straightforward.
+        </p>
 
-        <section class="about-page">
+        <p class="muted">
+          Explore the fleet, compare daily prices, view vehicle details,
+          and prepare a booking request through a clean, responsive interface.
+        </p>
 
-            <div class="section-title">
-                <h1>About Us</h1>
-                <p>Learn more about our car rental service.</p>
-            </div>
+        <p class="muted">
+          From discovering a suitable vehicle to estimating your rental
+          cost, the experience keeps important information clear and easy
+          to find.
+        </p>
 
-            <div class="about-content">
+        <a class="btn dark" href="cars.html">
+          Explore the fleet <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
 
-                <div class="about-image">
-                    <img src="images/about-car.jpg" alt="Car rental">
-                </div>
+    <section class="about-features">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">BUILT AROUND YOUR JOURNEY</p>
+            <h2>A simpler way to get moving.</h2>
+            <p>
+              Useful features, clear information, and a layout that works
+              across devices.
+            </p>
+          </div>
+        </div>
 
-                <div class="about-text">
-                    <h2>Your Journey, Our Priority</h2>
+        <div class="benefit-grid">
+          <article class="about-feature-card">
+            <span class="feature-number">01 / DISCOVER</span>
+            <div class="feature-symbol" aria-hidden="true">⌕</div>
+            <h3>Easy discovery</h3>
+            <p>
+              Search and filter the fleet to find a vehicle that suits
+              your plans.
+            </p>
+          </article>
 
-                    <p>
-                        We provide reliable and comfortable cars
-                        for every type of journey.
-                    </p>
+          <article class="about-feature-card">
+            <span class="feature-number">02 / COMPARE</span>
+            <div class="feature-symbol" aria-hidden="true">₹</div>
+            <h3>Clear estimates</h3>
+            <p>
+              Compare daily prices and estimate the rental cost for
+              your selected dates.
+            </p>
+          </article>
 
-                    <p>
-                        Whether you need a car for a short trip,
-                        a family vacation, or a business journey,
-                        we offer a variety of vehicles to suit your needs.
-                    </p>
+          <article class="about-feature-card">
+            <span class="feature-number">03 / EXPLORE</span>
+            <div class="feature-symbol" aria-hidden="true">↗</div>
+            <h3>Made for every screen</h3>
+            <p>
+              Browse vehicles and plan your journey on desktop, tablet,
+              or mobile.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-                    <p>
-                        Our goal is to make car rental simple,
-                        convenient, and enjoyable.
-                    </p>
-                </div>
+    <section class="about-bottom container">
+      <div>
+        <p class="eyebrow light">YOUR NEXT JOURNEY</p>
+        <h2>Ready to find your ride?</h2>
+        <p>
+          Explore the demo vehicles and find an option for your next trip.
+        </p>
+      </div>
+      <a class="btn primary" href="cars.html">
+        Browse our cars <span aria-hidden="true">↗</span>
+      </a>
+    </section>
+  </main>
 
-            </div>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a class="brand light-brand" href="index.html">
+          <span class="brand-mark">D</span>
+          <span>DriveEase<span class="dot">.</span></span>
+        </a>
+        <p>Thoughtful journeys start with the right ride.</p>
+        <a class="footer-top-link" href="#top"
+          onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+          Back to top ↑
+        </a>
+      </div>
 
-        </section>
-
-    </main>
-<button id="backToTop">↑</button>
-    <script src="js/script.js"></script>
-
+      <div class="footer-bottom">
+        <span>© <span data-year></span> DriveEase</span>
+        <span>Designed as a car rental portfolio project.</span>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

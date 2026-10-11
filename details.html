@@ -1,47 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Car Details - Car Rental</title>
-
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Details | DriveEase</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
 </head>
-
 <body>
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="brand" href="index.html"><span class="brand-mark">D</span> DriveEase<span class="dot">.</span></a>
+      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <div class="nav-links">
+        <a href="index.html">Home</a><a class="active" href="cars.html">Our Cars</a>
+        <a href="about.html">About</a><a href="contact.html">Contact</a>
+        <a class="nav-cta" href="booking.html">Book a car ↗</a>
+      </div>
+    </nav>
+  </header>
 
-    <header>
-        <nav class="navbar">
-           <div class="logo">Car Rental</div>
+  <main id="carDetail" class="section container">
+    <p>Loading car details...</p>
+  </main>
 
-<button class="menu-btn" id="menuBtn">☰</button>
-
-<ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="cars.html">Cars</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="booking.html">Booking</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-
-            <button id="darkModeBtn">🌙</button>
-        </nav>
-    </header>
-
-    <main>
-
-        <section class="details-page">
-
-            <div id="carDetails" class="car-details">
-                <!-- Car details will be added using JavaScript -->
-            </div>
-
-        </section>
-
-    </main>
-<button id="backToTop">↑</button>
-    <script src="js/script.js"></script>
-
+  <footer class="footer"><div class="container footer-inner">
+    <a class="brand light-brand" href="index.html">DriveEase<span class="dot">.</span></a>
+    <p>© <span data-year></span> DriveEase · Portfolio project</p>
+  </div></footer>
 </body>
 </html>

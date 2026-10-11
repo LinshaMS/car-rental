@@ -1,137 +1,80 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Booking - Car Rental</title>
-
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Car | DriveEase</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
 </head>
-
 <body>
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="brand" href="index.html"><span class="brand-mark">D</span> DriveEase<span class="dot">.</span></a>
+      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <div class="nav-links">
+        <a href="index.html">Home</a><a href="cars.html">Our Cars</a>
+        <a href="about.html">About</a><a href="contact.html">Contact</a>
+        <a class="nav-cta active" href="booking.html">Book a car ↗</a>
+      </div>
+    </nav>
+  </header>
 
-    <header>
-        <nav class="navbar">
-           <div class="logo">Car Rental</div>
+  <main>
+    <section class="page-hero compact">
+      <div class="container">
+        <p class="eyebrow light">LET'S GET YOU MOVING</p>
+        <h1>Plan your next trip.</h1>
+        <p>Choose your dates and tell us how to reach you.</p>
+      </div>
+    </section>
 
-<button class="menu-btn" id="menuBtn">☰</button>
+    <section class="section container booking-layout">
+      <form class="form-card" id="bookingForm">
+        <h2>Booking request</h2>
+        <p class="muted">This is a demo. Requests are saved in this browser and are not sent to a rental company.</p>
 
-<ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="cars.html">Cars</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="booking.html">Booking</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
+        <label>Choose a car
+          <select id="bookingCar" required></select>
+        </label>
 
-            <button id="darkModeBtn">🌙</button>
-        </nav>
-    </header>
+        <div class="form-row">
+          <label>Pickup date<input id="pickupDate" type="date" required></label>
+          <label>Return date<input id="returnDate" type="date" required></label>
+        </div>
 
-    <main>
+        <label>Pickup location
+          <input id="pickupLocation" placeholder="e.g. Kochi Airport" required>
+        </label>
 
-        <section class="booking-page">
+        <div class="form-row">
+          <label>Full name<input id="customerName" autocomplete="name" required></label>
+          <label>Email<input id="customerEmail" type="email" autocomplete="email" required></label>
+        </div>
 
-            <div class="section-title">
-                <h1>Book Your Car</h1>
-                <p>Fill in the details below to make your reservation.</p>
-            </div>
+        <label>Notes (optional)
+          <textarea id="bookingNotes" rows="3" placeholder="Any preferences?"></textarea>
+        </label>
 
-            <form id="bookingForm" class="booking-form">
+        <button class="btn dark full" type="submit">Save booking request ↗</button>
+        <p class="form-message" id="bookingMessage" role="status"></p>
+      </form>
 
-                <div class="form-group">
-                    <label for="fullName">Full Name</label>
-                    <input
-                        type="text"
-                        id="fullName"
-                        placeholder="Enter your full name"
-                        required
-                    >
-                    <small id="nameError"></small>
-                </div>
+      <aside class="summary-card">
+        <p class="eyebrow">YOUR SUMMARY</p>
+        <h3 id="summaryCar">Select a car</h3>
+        <p id="summaryDates" class="muted">Choose pickup and return dates.</p>
+        <div class="summary-line"><span>Price per day</span><strong id="summaryRate">—</strong></div>
+        <div class="summary-line"><span>Rental days</span><strong id="summaryDays">—</strong></div>
+        <div class="summary-line total"><span>Estimated total</span><strong id="summaryTotal">—</strong></div>
+        <p class="fine-print">Estimate only. Availability is not checked.</p>
+      </aside>
+    </section>
+  </main>
 
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input
-                        type="email"
-                        id="email"
-                        placeholder="Enter your email"
-                        required
-                    >
-                    <small id="emailError"></small>
-                </div>
-
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input
-                        type="tel"
-                        id="phone"
-                        placeholder="Enter 10-digit phone number"
-                        required
-                    >
-                    <small id="phoneError"></small>
-                </div>
-
-                <div class="form-group">
-                    <label for="carSelect">Select Car</label>
-
-                    <select id="carSelect" required>
-                        <option value="">Choose a car</option>
-                        <option value="BMW 3 Series">BMW 3 Series</option>
-                        <option value="Mercedes Benz C-Class">
-                            Mercedes Benz C-Class
-                        </option>
-                        <option value="Toyota Fortuner">
-                            Toyota Fortuner
-                        </option>
-                        <option value="Honda City">
-                            Honda City
-                        </option>
-                        <option value="Hyundai Creta">
-                            Hyundai Creta
-                        </option>
-                        <option value="Audi A4">
-                            Audi A4
-                        </option>
-                    </select>
-
-                    <small id="carError"></small>
-                </div>
-
-                <div class="form-group">
-                    <label for="bookingPickupDate">Pickup Date</label>
-                    <input
-                        type="date"
-                        id="bookingPickupDate"
-                        required
-                    >
-                    <small id="pickupError"></small>
-                </div>
-
-                <div class="form-group">
-                    <label for="bookingReturnDate">Return Date</label>
-                    <input
-                        type="date"
-                        id="bookingReturnDate"
-                        required
-                    >
-                    <small id="returnError"></small>
-                </div>
-
-                <button type="submit" class="submit-btn">
-                    Confirm Booking
-                </button>
-
-                <p id="bookingMessage"></p>
-
-            </form>
-
-        </section>
-
-    </main>
-<button id="backToTop">↑</button>
-    <script src="js/script.js"></script>
-
+  <footer class="footer"><div class="container footer-inner">
+    <a class="brand light-brand" href="index.html">DriveEase<span class="dot">.</span></a>
+    <p>© <span data-year></span> DriveEase · Portfolio project</p>
+  </div></footer>
 </body>
 </html>

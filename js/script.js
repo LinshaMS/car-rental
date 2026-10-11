@@ -1,493 +1,449 @@
 const cars = [
-    {
-        id: 1,
-        name: "BMW 3 Series",
-        category: "Luxury",
-        transmission: "Automatic",
-        seats: 5,
-        price: 4500,
-        image: "images/car1.jpg"
-    },
-    {
-        id: 2,
-        name: "Mercedes Benz C-Class",
-        category: "Luxury",
-        transmission: "Automatic",
-        seats: 5,
-        price: 5500,
-        image: "images/car2.jpg"
-    },
-    {
-        id: 3,
-        name: "Toyota Fortuner",
-        category: "SUV",
-        transmission: "Automatic",
-        seats: 7,
-        price: 4000,
-        image: "images/car3.jpg"
-    },
-    {
-        id: 4,
-        name: "Honda City",
-        category: "Sedan",
-        transmission: "Manual",
-        seats: 5,
-        price: 2500,
-        image: "images/car4.jpg"
-    },
-    {
-        id: 5,
-        name: "Hyundai Creta",
-        category: "SUV",
-        transmission: "Automatic",
-        seats: 5,
-        price: 3000,
-        image: "images/car5.jpg"
-    },
-    {
-        id: 6,
-        name: "Audi A4",
-        category: "Luxury",
-        transmission: "Automatic",
-        seats: 5,
-        price: 6000,
-        image: "images/car6.jpg"
-    }
+  {
+    id: 1,
+    name: "Urban Comfort",
+    type: "comfort",
+    price: 2000,
+    image: "images/car1.jpg",
+    seats: 5,
+    transmission: "Automatic",
+    fuel: "Petrol",
+    description: "A comfortable everyday car for city drives, airport runs, and relaxed weekend plans.",
+    tag: "Popular"
+  },
+  {
+    id: 2,
+    name: "City Explorer",
+    type: "city",
+    price: 1800,
+    image: "images/car2.jpg",
+    seats: 5,
+    transmission: "Manual",
+    fuel: "Petrol",
+    description: "Compact and easy to handle, a practical choice for busy streets and short trips.",
+    tag: "City"
+  },
+  {
+    id: 3,
+    name: "Weekend Cruiser",
+    type: "suv",
+    price: 2800,
+    image: "images/car3.jpg",
+    seats: 5,
+    transmission: "Automatic",
+    fuel: "Diesel",
+    description: "Extra room and comfort for longer drives and weekends away.",
+    tag: "Adventure"
+  },
+  {
+    id: 4,
+    name: "Family Traveller",
+    type: "suv",
+    price: 3200,
+    image: "images/car4.jpg",
+    seats: 7,
+    transmission: "Manual",
+    fuel: "Diesel",
+    description: "A spacious option for family plans, luggage, and group journeys.",
+    tag: "Spacious"
+  },
+  {
+    id: 5,
+    name: "Premium Drive",
+    type: "premium",
+    price: 4500,
+    image: "images/car5.jpg",
+    seats: 5,
+    transmission: "Automatic",
+    fuel: "Petrol",
+    description: "A refined ride for special occasions and trips when comfort comes first.",
+    tag: "Premium"
+  },
+  {
+    id: 6,
+    name: "Road Trip Plus",
+    type: "comfort",
+    price: 2500,
+    image: "images/car6.jpg",
+    seats: 5,
+    transmission: "Automatic",
+    fuel: "Diesel",
+    description: "A versatile companion for day trips and longer routes.",
+    tag: "Comfort"
+  }
 ];
 
-const carsContainer = document.getElementById("carsContainer");
+const money = amount =>
+  new Intl.NumberFormat("en-IN", {
+    style: "currency",
+    currency: "INR",
+    maximumFractionDigits: 0
+  }).format(amount);
 
-function displayCars(carList) {
+const byId = id => document.getElementById(id);
 
-    if (!carsContainer) {
-        return;
-    }
-
-    carsContainer.innerHTML = "";
-
-    carList.forEach(function (car) {
-
-        const carCard = document.createElement("div");
-
-        carCard.classList.add("car-card");
-
-        carCard.innerHTML = `
-            <img src="${car.image}" alt="${car.name}">
-
-            <div class="car-info">
-                <h3>${car.name}</h3>
-
-                <p>
-                    ${car.category} •
-                    ${car.transmission} •
-                    ${car.seats} Seats
-                </p>
-
-                <h4>₹${car.price} / Day</h4>
-
-                <a href="details.html?id=${car.id}" class="car-btn">
-                    View Details
-                </a>
-            </div>
-        `;
-
-        carsContainer.appendChild(carCard);
-    });
+function escapeHTML(value) {
+  return String(value).replace(/[&<>"']/g, character => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[character]);
 }
 
-displayCars(cars);
-
-const carSearch = document.getElementById("carSearch");
-const categoryFilter = document.getElementById("categoryFilter");
-const priceSort = document.getElementById("priceSort");
-
-function updateCars() {
-    let filteredCars = [...cars];
-
-    // Search by car name
-    if (carSearch) {
-        const searchText = carSearch.value.toLowerCase();
-
-        filteredCars = filteredCars.filter(function (car) {
-            return car.name.toLowerCase().includes(searchText);
-        });
-    }
-
-    // Filter by category
-    if (categoryFilter && categoryFilter.value !== "all") {
-        filteredCars = filteredCars.filter(function (car) {
-            return car.category === categoryFilter.value;
-        });
-    }
-
-    // Sort by price
-    if (priceSort) {
-
-        if (priceSort.value === "low-high") {
-            filteredCars.sort(function (a, b) {
-                return a.price - b.price;
-            });
-        }
-
-        if (priceSort.value === "high-low") {
-            filteredCars.sort(function (a, b) {
-                return b.price - a.price;
-            });
-        }
-    }
-
-    displayCars(filteredCars);
-}
-if (carSearch) {
-    carSearch.addEventListener("input", updateCars);
-}
-
-if (categoryFilter) {
-    categoryFilter.addEventListener("change", updateCars);
-}
-
-if (priceSort) {
-    priceSort.addEventListener("change", updateCars);
-}
-
-
-const carDetails = document.getElementById("carDetails");
-
-if (carDetails) {
-
-    const urlParams = new URLSearchParams(window.location.search);
-    const carId = Number(urlParams.get("id"));
-
-    const selectedCar = cars.find(function (car) {
-        return car.id === carId;
-    });
-
-    if (selectedCar) {
-
-        carDetails.innerHTML = `
-            <img src="${selectedCar.image}" alt="${selectedCar.name}">
-
-            <div class="details-info">
-                <h1>${selectedCar.name}</h1>
-
-                <p><strong>Category:</strong> ${selectedCar.category}</p>
-                <p><strong>Transmission:</strong> ${selectedCar.transmission}</p>
-                <p><strong>Seats:</strong> ${selectedCar.seats}</p>
-
-                <p class="details-price">
-                    ₹${selectedCar.price} / Day
-                </p>
-
-                <a href="booking.html?id=${selectedCar.id}" class="book-btn">
-                    Book This Car
-                </a>
-            </div>
-        `;
-
-    } else {
-
-        carDetails.innerHTML = `
-            <div class="details-info">
-                <h1>Car Not Found</h1>
-                <p>Sorry, the selected car could not be found.</p>
-                <a href="cars.html" class="book-btn">
-                    Back to Cars
-                </a>
-            </div>
-        `;
-    }
-}
-
-
-
-
-const bookingForm = document.getElementById("bookingForm");
-
-if (bookingForm) {
-
-    bookingForm.addEventListener("submit", function (event) {
-
-        event.preventDefault();
-
-        const fullName = document.getElementById("fullName").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const phone = document.getElementById("phone").value.trim();
-        const car = document.getElementById("carSelect").value;
-        const pickupDate = document.getElementById("bookingPickupDate").value;
-        const returnDate = document.getElementById("bookingReturnDate").value;
-
-        const nameError = document.getElementById("nameError");
-        const emailError = document.getElementById("emailError");
-        const phoneError = document.getElementById("phoneError");
-        const carError = document.getElementById("carError");
-        const pickupError = document.getElementById("pickupError");
-        const returnError = document.getElementById("returnError");
-        const bookingMessage = document.getElementById("bookingMessage");
-
-        nameError.textContent = "";
-        emailError.textContent = "";
-        phoneError.textContent = "";
-        carError.textContent = "";
-        pickupError.textContent = "";
-        returnError.textContent = "";
-        bookingMessage.textContent = "";
-
-        let isValid = true;
-
-        // Name validation
-        if (fullName === "") {
-            nameError.textContent = "Please enter your name.";
-            isValid = false;
-        }
-
-        // Email validation
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        if (!emailPattern.test(email)) {
-            emailError.textContent = "Please enter a valid email.";
-            isValid = false;
-        }
-
-        // Phone validation
-        const phonePattern = /^[0-9]{10}$/;
-
-        if (!phonePattern.test(phone)) {
-            phoneError.textContent = "Phone number must contain 10 digits.";
-            isValid = false;
-        }
-
-        // Car validation
-        if (car === "") {
-            carError.textContent = "Please select a car.";
-            isValid = false;
-        }
-
-        // Date validation
-        const today = new Date();
-        today.setHours(0, 0, 0, 0);
-
-        const selectedPickupDate = new Date(pickupDate);
-        const selectedReturnDate = new Date(returnDate);
-
-        if (pickupDate === "") {
-            pickupError.textContent = "Please select a pickup date.";
-            isValid = false;
-        } else if (selectedPickupDate < today) {
-            pickupError.textContent = "Pickup date must be in the future.";
-            isValid = false;
-        }
-
-        if (returnDate === "") {
-            returnError.textContent = "Please select a return date.";
-            isValid = false;
-        } else if (
-            pickupDate !== "" &&
-            selectedReturnDate <= selectedPickupDate
-        ) {
-            returnError.textContent =
-                "Return date must be after pickup date.";
-            isValid = false;
-        }
-
-        if (isValid) {
-            bookingMessage.textContent =
-                "Booking successful! Your car has been reserved.";
-
-            bookingForm.reset();
-        }
-    });
-}
-
-
-
-const contactForm = document.getElementById("contactForm");
-
-if (contactForm) {
-
-    contactForm.addEventListener("submit", function (event) {
-
-        event.preventDefault();
-
-        const contactName = document.getElementById("contactName").value.trim();
-        const contactEmail = document.getElementById("contactEmail").value.trim();
-        const contactMessage = document.getElementById("contactMessage").value.trim();
-        const status = document.getElementById("contactMessageStatus");
-
-        if (contactName === "") {
-            status.textContent = "Please enter your name.";
-            return;
-        }
-
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        if (!emailPattern.test(contactEmail)) {
-            status.textContent = "Please enter a valid email.";
-            return;
-        }
-
-        if (contactMessage === "") {
-            status.textContent = "Please enter your message.";
-            return;
-        }
-
-        status.textContent = "Thank you! Your message has been sent.";
-
-        contactForm.reset();
-    });
-}
-
-const darkModeBtn = document.getElementById("darkModeBtn");
-
-if (darkModeBtn) {
-
-    darkModeBtn.addEventListener("click", function () {
-
-        document.body.classList.toggle("dark-mode");
-
-        if (document.body.classList.contains("dark-mode")) {
-            darkModeBtn.textContent = "☀️";
-        } else {
-            darkModeBtn.textContent = "🌙";
-        }
-
-    });
-
-}
-
-const hero = document.querySelector(".hero");
-const heroTitle = document.getElementById("heroTitle");
-const heroText = document.getElementById("heroText");
-const prevSlide = document.getElementById("prevSlide");
-const nextSlide = document.getElementById("nextSlide");
-
-const heroSlides = [
-    {
-        image: "images/car-hero.jpg",
-        title: "Rent Your Dream Car",
-        text: "Choose from a wide range of cars and enjoy a smooth, comfortable journey."
-    },
-    {
-        image: "images/car2.jpg",
-        title: "Luxury For Every Journey",
-        text: "Travel in comfort and style with our premium collection of cars."
-    },
-    {
-        image: "images/car3.jpg",
-        title: "Adventure Starts Here",
-        text: "Choose an SUV and make your next journey unforgettable."
-    }
-];
-
-let currentSlide = 0;
-
-function showSlide(index) {
-
-    if (!hero || !heroTitle || !heroText) {
-        return;
-    }
-
-    currentSlide = index;
-
-    hero.style.backgroundImage =
-        `linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), 
-         url("${heroSlides[currentSlide].image}")`;
-
-    heroTitle.textContent = heroSlides[currentSlide].title;
-
-    heroText.textContent = heroSlides[currentSlide].text;
-}
-
-if (nextSlide) {
-    nextSlide.addEventListener("click", function () {
-
-        currentSlide++;
-
-        if (currentSlide >= heroSlides.length) {
-            currentSlide = 0;
-        }
-
-        showSlide(currentSlide);
-    });
-}
-
-if (prevSlide) {
-    prevSlide.addEventListener("click", function () {
-
-        currentSlide--;
-
-        if (currentSlide < 0) {
-            currentSlide = heroSlides.length - 1;
-        }
-
-        showSlide(currentSlide);
-    });
-}
-
-if (hero) {
-    showSlide(0);
-}
-
-const faqQuestions = document.querySelectorAll(".faq-question");
-
-faqQuestions.forEach(function (question) {
-
-    question.addEventListener("click", function () {
-
-        const answer = question.nextElementSibling;
-        const icon = question.querySelector("span");
-
-        if (answer.style.display === "block") {
-
-            answer.style.display = "none";
-            icon.textContent = "+";
-
-        } else {
-
-            answer.style.display = "block";
-            icon.textContent = "−";
-
-        }
-
-    });
-
+// Automatically update the footer year.
+document.querySelectorAll("[data-year]").forEach(element => {
+  element.textContent = new Date().getFullYear();
 });
 
+// Mobile navigation.
+const menuToggle = document.querySelector(".menu-toggle");
+const navLinks = document.querySelector(".nav-links");
 
-
-
-const backToTop = document.getElementById("backToTop");
-
-if (backToTop) {
-
-    window.addEventListener("scroll", function () {
-
-        if (window.scrollY > 300) {
-            backToTop.style.display = "block";
-        } else {
-            backToTop.style.display = "none";
-        }
-
-    });
-
-    backToTop.addEventListener("click", function () {
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-    });
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener("click", () => {
+    const isOpen = navLinks.classList.toggle("open");
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+  });
 }
 
-const menuBtn = document.getElementById("menuBtn");
-const navLinks = document.getElementById("navLinks");
+// Reusable car card.
+function createCarCard(car) {
+  return `
+    <article class="car-card">
+      <a href="details.html?car=${car.id}">
+        <img src="${car.image}" alt="${escapeHTML(car.name)}" loading="lazy">
+      </a>
 
-if (menuBtn && navLinks) {
+      <div class="car-info">
+        <div class="car-title">
+          <h3>${escapeHTML(car.name)}</h3>
+          <span class="pill">${escapeHTML(car.tag)}</span>
+        </div>
 
-    menuBtn.addEventListener("click", function () {
+        <p class="muted">${escapeHTML(car.description)}</p>
 
-        navLinks.classList.toggle("active");
+        <div class="specs">
+          <span>${car.seats} seats</span>
+          <span>${escapeHTML(car.transmission)}</span>
+          <span>${escapeHTML(car.fuel)}</span>
+        </div>
 
+        <div class="car-bottom">
+          <p><strong>${money(car.price)}</strong><small>/ day</small></p>
+          <a class="btn outline" href="details.html?car=${car.id}">
+            View details
+          </a>
+        </div>
+      </div>
+    </article>
+  `;
+}
+
+// Car listing page: search, filter and sort.
+const allCarsContainer = byId("allCars");
+
+if (allCarsContainer) {
+  const searchInput = byId("carSearch");
+  const categoryFilter = byId("categoryFilter");
+  const sortSelect = byId("sortCars");
+
+  function renderCars() {
+    const keyword = searchInput.value.trim().toLowerCase();
+
+    let filteredCars = cars.filter(car => {
+      const matchesCategory =
+        categoryFilter.value === "all" ||
+        car.type === categoryFilter.value;
+
+      const searchableText =
+        `${car.name} ${car.type} ${car.description}`.toLowerCase();
+
+      return matchesCategory && searchableText.includes(keyword);
     });
 
+    if (sortSelect.value === "low") {
+      filteredCars.sort((a, b) => a.price - b.price);
+    }
+
+    if (sortSelect.value === "high") {
+      filteredCars.sort((a, b) => b.price - a.price);
+    }
+
+    allCarsContainer.innerHTML = filteredCars
+      .map(createCarCard)
+      .join("");
+
+    byId("carCount").textContent =
+      `${filteredCars.length} vehicle${filteredCars.length === 1 ? "" : "s"} found`;
+
+    byId("noCars").hidden = filteredCars.length > 0;
+  }
+
+  [searchInput, categoryFilter, sortSelect].forEach(element => {
+    element.addEventListener("input", renderCars);
+  });
+
+  renderCars();
+}
+
+// Homepage quick search.
+const quickSearch = byId("quickSearch");
+
+if (quickSearch) {
+  quickSearch.addEventListener("submit", event => {
+    event.preventDefault();
+
+    const pickup = byId("homePickup").value;
+    const returnDate = byId("homeReturn").value;
+
+    if (returnDate < pickup) {
+      alert("Return date must be on or after pickup date.");
+      return;
+    }
+
+    sessionStorage.setItem("driveEaseSearch", JSON.stringify({
+      location: byId("homeLocation").value,
+      pickup,
+      returnDate
+    }));
+
+    window.location.href = "cars.html";
+  });
+}
+
+// Get the selected vehicle from the URL.
+function getSelectedCar() {
+  const carId = Number(
+    new URLSearchParams(window.location.search).get("car") || 1
+  );
+
+  return cars.find(car => car.id === carId) || cars[0];
+}
+
+// Individual car details page.
+const detailContainer = byId("carDetail");
+
+if (detailContainer) {
+  const car = getSelectedCar();
+
+  document.title = `${car.name} | DriveEase`;
+
+  detailContainer.innerHTML = `
+    <p class="eyebrow">VEHICLE DETAILS</p>
+
+    <div class="detail-layout">
+      <div>
+        <img class="detail-image"
+             src="${car.image}"
+             alt="${escapeHTML(car.name)}">
+
+        <div class="detail-list">
+          <span>${car.seats} seats</span>
+          <span>${escapeHTML(car.transmission)}</span>
+          <span>${escapeHTML(car.fuel)}</span>
+          <span>${escapeHTML(car.tag)}</span>
+        </div>
+
+        <h2>About this car</h2>
+        <p class="muted">
+          ${escapeHTML(car.description)}
+          Select dates on the booking page to calculate an estimate.
+        </p>
+      </div>
+
+      <aside class="detail-panel">
+        <p class="eyebrow">YOUR NEXT RIDE</p>
+        <h1>${escapeHTML(car.name)}</h1>
+        <p class="detail-price">${money(car.price)} <small>/ day</small></p>
+        <p class="muted">
+          A simple, transparent estimate to help plan your trip.
+        </p>
+
+        <a class="btn dark full" href="booking.html?car=${car.id}">
+          Book this car ↗
+        </a>
+
+        <p class="fine-print">
+          Demo booking only. Availability is not checked with a provider.
+        </p>
+      </aside>
+    </div>
+  `;
+}
+
+// Booking page.
+const bookingForm = byId("bookingForm");
+
+if (bookingForm) {
+  const carSelect = byId("bookingCar");
+
+  carSelect.innerHTML = cars.map(car => `
+    <option value="${car.id}">
+      ${escapeHTML(car.name)} — ${money(car.price)}/day
+    </option>
+  `).join("");
+
+  const params = new URLSearchParams(window.location.search);
+  const requestedCar = Number(params.get("car"));
+
+  if (cars.some(car => car.id === requestedCar)) {
+    carSelect.value = String(requestedCar);
+  }
+
+  // Restore dates and location from homepage quick search.
+  const savedSearch = JSON.parse(
+    sessionStorage.getItem("driveEaseSearch") || "null"
+  );
+
+  if (savedSearch) {
+    byId("pickupLocation").value = savedSearch.location || "";
+    byId("pickupDate").value = savedSearch.pickup || "";
+    byId("returnDate").value = savedSearch.returnDate || "";
+  }
+
+  // Prevent selecting dates in the past.
+  const todayDate = new Date();
+  todayDate.setMinutes(
+    todayDate.getMinutes() - todayDate.getTimezoneOffset()
+  );
+
+  const today = todayDate.toISOString().slice(0, 10);
+
+  byId("pickupDate").min = today;
+  byId("returnDate").min = today;
+
+  function updateBookingSummary() {
+    const car = cars.find(item =>
+      item.id === Number(carSelect.value)
+    ) || cars[0];
+
+    const pickup = byId("pickupDate").value;
+    const returnDate = byId("returnDate").value;
+
+    byId("summaryCar").textContent = car.name;
+    byId("summaryRate").textContent = money(car.price);
+
+    if (!pickup || !returnDate || returnDate < pickup) {
+      byId("summaryDates").textContent =
+        "Choose valid pickup and return dates.";
+      byId("summaryDays").textContent = "—";
+      byId("summaryTotal").textContent = "—";
+      return;
+    }
+
+    // Same-day rentals are counted as one day.
+    const difference = Math.ceil(
+      (new Date(returnDate + "T00:00:00") -
+       new Date(pickup + "T00:00:00")) / 86400000
+    );
+
+    const days = Math.max(1, difference);
+
+    byId("summaryDates").textContent =
+      `${pickup} → ${returnDate}`;
+
+    byId("summaryDays").textContent =
+      `${days} day${days === 1 ? "" : "s"}`;
+
+    byId("summaryTotal").textContent = money(days * car.price);
+  }
+
+  [carSelect, byId("pickupDate"), byId("returnDate")].forEach(element => {
+    element.addEventListener("change", () => {
+      if (element.id === "pickupDate") {
+        byId("returnDate").min = element.value || today;
+      }
+
+      updateBookingSummary();
+    });
+  });
+
+  updateBookingSummary();
+
+  bookingForm.addEventListener("submit", event => {
+    event.preventDefault();
+
+    const pickup = byId("pickupDate").value;
+    const returnDate = byId("returnDate").value;
+    const message = byId("bookingMessage");
+
+    if (pickup < today) {
+      message.textContent = "Pickup date cannot be in the past.";
+      return;
+    }
+
+    if (returnDate < pickup) {
+      message.textContent =
+        "Return date must be on or after pickup date.";
+      return;
+    }
+
+    const car = cars.find(item =>
+      item.id === Number(carSelect.value)
+    );
+
+    const days = Math.max(1, Math.ceil(
+      (new Date(returnDate + "T00:00:00") -
+       new Date(pickup + "T00:00:00")) / 86400000
+    ));
+
+    const booking = {
+      reference: "DE" + Date.now().toString().slice(-7),
+      car: car.name,
+      pickup,
+      returnDate,
+      location: byId("pickupLocation").value,
+      name: byId("customerName").value,
+      email: byId("customerEmail").value,
+      notes: byId("bookingNotes").value,
+      days,
+      total: days * car.price,
+      createdAt: new Date().toISOString()
+    };
+
+    // Store the demo request in this browser only.
+    const savedBookings = JSON.parse(
+      localStorage.getItem("driveEaseBookings") || "[]"
+    );
+
+    savedBookings.push(booking);
+
+    localStorage.setItem(
+      "driveEaseBookings",
+      JSON.stringify(savedBookings)
+    );
+
+    message.textContent =
+      `Request saved in this browser. Reference: ${booking.reference}. ` +
+      "This is not a confirmed reservation.";
+
+    bookingForm.reset();
+    carSelect.value = String(car.id);
+    updateBookingSummary();
+  });
+}
+
+// Contact form: prepares an email in the user's email application.
+const contactForm = byId("contactForm");
+
+if (contactForm) {
+  contactForm.addEventListener("submit", event => {
+    event.preventDefault();
+
+    const subject = encodeURIComponent("DriveEase website enquiry");
+
+    const body = encodeURIComponent(
+      `Name: ${byId("contactName").value}\n` +
+      `Email: ${byId("contactEmail").value}\n\n` +
+      `${byId("contactMessage").value}`
+    );
+
+    byId("contactStatus").textContent =
+      "Opening your email application to prepare the message.";
+
+    window.location.href =
+      `mailto:?subject=${subject}&body=${body}`;
+  });
 }

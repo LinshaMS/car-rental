@@ -1,112 +1,136 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Contact Us - Car Rental</title>
-
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10151f">
+  <meta name="description" content="Get in touch with DriveEase about vehicles, rental estimates, and your next journey.">
+  <title>Contact | DriveEase</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
 </head>
-
 <body>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="DriveEase home">
+        <span class="brand-mark">D</span>
+        <span>DriveEase<span class="dot">.</span></span>
+      </a>
 
-    <header>
-        <nav class="navbar">
-           <div class="logo">Car Rental</div>
+      <button class="menu-toggle" type="button"
+        aria-label="Toggle navigation" aria-expanded="false">
+        ☰
+      </button>
 
-<button class="menu-btn" id="menuBtn">☰</button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="cars.html">Our Cars</a>
+        <a href="about.html">About</a>
+        <a class="active" href="contact.html" aria-current="page">Contact</a>
+        <a class="nav-cta" href="booking.html">Book a car ↗</a>
+      </div>
+    </nav>
+  </header>
 
-<ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="cars.html">Cars</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="booking.html">Booking</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
+  <main>
+    <section class="page-hero contact-hero">
+      <div class="container">
+        <p class="eyebrow light">CONTACT DRIVE EASE</p>
+        <h1>Let's make your<br>next trip happen.</h1>
+        <p>Have a question about a vehicle or your plans? We'd love to hear from you.</p>
+      </div>
+    </section>
 
-            <button id="darkModeBtn">🌙</button>
-        </nav>
-    </header>
+    <section class="section container contact-layout">
+      <div class="contact-intro">
+        <p class="eyebrow">GET IN TOUCH</p>
+        <h2>We're here to help.</h2>
+        <p class="muted contact-description">
+          Tell us what you're planning, and prepare an enquiry using your
+          preferred email application.
+        </p>
 
-    <main>
+        <div class="contact-detail">
+          <span class="contact-icon" aria-hidden="true">01</span>
+          <div>
+            <h3>Questions about a car?</h3>
+            <p>Tell us which vehicle you're interested in.</p>
+          </div>
+        </div>
 
-        <section class="contact-page">
+        <div class="contact-detail">
+          <span class="contact-icon" aria-hidden="true">02</span>
+          <div>
+            <h3>Planning a trip?</h3>
+            <p>Include your dates and preferred pickup location.</p>
+          </div>
+        </div>
 
-            <div class="section-title">
-                <h1>Contact Us</h1>
-                <p>Have a question? We'd love to hear from you.</p>
-            </div>
+        <div class="contact-note">
+          <span aria-hidden="true">ⓘ</span>
+          <p>
+            This is a frontend demo. Your message will be prepared in your
+            email application; it won't be sent to a server automatically.
+          </p>
+        </div>
+      </div>
 
-            <div class="contact-container">
+      <form class="form-card contact-form" id="contactForm">
+        <div class="form-heading">
+          <h2>Send a message</h2>
+          <p>We'd love to hear from you.</p>
+        </div>
 
-                <div class="contact-info">
-                    <h2>Get In Touch</h2>
+        <div class="form-group">
+          <label for="contactName">Your name</label>
+          <input id="contactName" name="name" type="text"
+            placeholder="Enter your full name"
+            autocomplete="name" required>
+        </div>
 
-                    <p>
-                        📍 Kochi, Kerala
-                    </p>
+        <div class="form-group">
+          <label for="contactEmail">Email address</label>
+          <input id="contactEmail" name="email" type="email"
+            placeholder="you@example.com"
+            autocomplete="email" required>
+        </div>
 
-                    <p>
-                        📞 +91 98765 43210
-                    </p>
+        <div class="form-group">
+          <label for="contactMessage">Your message</label>
+          <textarea id="contactMessage" name="message" rows="5"
+            placeholder="How can we help with your trip?"
+            required></textarea>
+        </div>
 
-                    <p>
-                        ✉️ info@carrental.com
-                    </p>
+        <button class="btn primary full" type="submit">
+          Prepare email <span aria-hidden="true">↗</span>
+        </button>
 
-                    <p>
-                        🕒 Monday - Saturday: 9:00 AM - 6:00 PM
-                    </p>
-                </div>
+        <p class="form-message" id="contactStatus"
+          role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
 
-                <form id="contactForm" class="contact-form">
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a class="brand light-brand" href="index.html">
+          <span class="brand-mark">D</span>
+          <span>DriveEase<span class="dot">.</span></span>
+        </a>
+        <p>Thoughtful journeys start with the right ride.</p>
+        <a class="footer-top-link" href="#top"
+          onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+          Back to top ↑
+        </a>
+      </div>
 
-                    <div class="form-group">
-                        <label for="contactName">Name</label>
-                        <input
-                            type="text"
-                            id="contactName"
-                            placeholder="Enter your name"
-                            required
-                        >
-                    </div>
-
-                    <div class="form-group">
-                        <label for="contactEmail">Email</label>
-                        <input
-                            type="email"
-                            id="contactEmail"
-                            placeholder="Enter your email"
-                            required
-                        >
-                    </div>
-
-                    <div class="form-group">
-                        <label for="contactMessage">Message</label>
-                        <textarea
-                            id="contactMessage"
-                            rows="6"
-                            placeholder="Write your message..."
-                            required
-                        ></textarea>
-                    </div>
-
-                    <button type="submit" class="submit-btn">
-                        Send Message
-                    </button>
-
-                    <p id="contactMessageStatus"></p>
-
-                </form>
-
-            </div>
-
-        </section>
-
-    </main>
-<button id="backToTop">↑</button>
-    <script src="js/script.js"></script>
-
+      <div class="footer-bottom">
+        <span>© <span data-year></span> DriveEase</span>
+        <span>Designed as a car rental portfolio project.</span>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

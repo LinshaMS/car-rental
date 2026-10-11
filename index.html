@@ -1,243 +1,121 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Car Rental</title>
-
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Find your perfect rental car with DriveEase.">
+  <title>DriveEase | Car Rental</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="./js/script.js" defer></script>
 </head>
-
 <body>
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="brand" href="index.html"><span class="brand-mark">D</span> DriveEase<span class="dot">.</span></a>
+      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <div class="nav-links">
+        <a class="active" href="index.html">Home</a>
+        <a href="cars.html">Our Cars</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a class="nav-cta" href="booking.html">Book a car ↗</a>
+      </div>
+    </nav>
+  </header>
 
-    <header>
-        <nav class="navbar">
-           <div class="logo">Car Rental</div>
+  <main>
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <p class="eyebrow light">YOUR JOURNEY, YOUR WAY</p>
+        <h1>Find the right car.<br><span>Enjoy the ride.</span></h1>
+        <p class="hero-copy">Comfortable rides for weekend escapes, business trips, and everything in between.</p>
+        <div class="actions">
+          <a class="btn primary" href="cars.html">Explore our cars ↗</a>
+          <a class="btn glass" href="about.html">Why DriveEase?</a>
+        </div>
+        <p class="hero-note">✓ Simple booking · Transparent pricing · Freedom to explore</p>
+      </div>
+    </section>
 
-<button class="menu-btn" id="menuBtn">☰</button>
+    <section class="container search-wrap">
+      <form id="quickSearch" class="search-card">
+        <label>Pickup location
+          <input id="homeLocation" placeholder="e.g. Kochi" required>
+        </label>
+        <label>Pickup date
+          <input id="homePickup" type="date" required>
+        </label>
+        <label>Return date
+          <input id="homeReturn" type="date" required>
+        </label>
+        <button class="btn dark" type="submit">Find a car ↗</button>
+      </form>
+    </section>
 
-<ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="cars.html">Cars</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="booking.html">Booking</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
+    <section class="section container">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">MADE FOR THE ROAD</p>
+          <h2>Choose your next ride.</h2>
+          <p class="muted">A few favourites to get your journey started.</p>
+        </div>
+        <a class="text-link" href="cars.html">View all cars ↗</a>
+      </div>
 
-            <button id="darkModeBtn">🌙</button>
-        </nav>
-    </header>
-    
+      <div class="car-grid">
+        <article class="car-card">
+          <a href="details.html?car=1"><img src="images/car1.jpg" alt="Urban Comfort car"></a>
+          <div class="car-info">
+            <div class="car-title"><h3>Urban Comfort</h3><span class="pill">Popular</span></div>
+            <p class="muted">Comfortable · Everyday drive</p>
+            <div class="specs"><span>5 seats</span><span>Automatic</span><span>Petrol</span></div>
+            <div class="car-bottom"><p><strong>₹2,000</strong><small>/ day</small></p><a class="btn outline" href="details.html?car=1">View details</a></div>
+          </div>
+        </article>
 
-   <section class="hero">
+        <article class="car-card">
+          <a href="details.html?car=2"><img src="images/car2.jpg" alt="City Explorer car"></a>
+          <div class="car-info">
+            <div class="car-title"><h3>City Explorer</h3><span class="pill">City</span></div>
+            <p class="muted">Easy handling · City trips</p>
+            <div class="specs"><span>5 seats</span><span>Manual</span><span>Petrol</span></div>
+            <div class="car-bottom"><p><strong>₹1,800</strong><small>/ day</small></p><a class="btn outline" href="details.html?car=2">View details</a></div>
+          </div>
+        </article>
 
-    <div class="hero-content">
-        <h1 id="heroTitle">Rent Your Dream Car</h1>
+        <article class="car-card">
+          <a href="details.html?car=3"><img src="images/car3.jpg" alt="Weekend Cruiser car"></a>
+          <div class="car-info">
+            <div class="car-title"><h3>Weekend Cruiser</h3><span class="pill">Adventure</span></div>
+            <p class="muted">Room to roam · Longer drives</p>
+            <div class="specs"><span>5 seats</span><span>Automatic</span><span>Diesel</span></div>
+            <div class="car-bottom"><p><strong>₹2,800</strong><small>/ day</small></p><a class="btn outline" href="details.html?car=3">View details</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
 
-        <p id="heroText">
-            Choose from a wide range of cars and enjoy a smooth,
-            comfortable journey.
-        </p>
+    <section class="benefits">
+      <div class="container benefit-grid">
+        <article><b>✓</b><h3>Clear pricing</h3><p>See an estimated cost before submitting a booking request.</p></article>
+        <article><b>↗</b><h3>Easy to choose</h3><p>Search and compare vehicles that suit your plans.</p></article>
+        <article><b>♡</b><h3>Made for you</h3><p>Find a ride for city trips and longer road adventures.</p></article>
+      </div>
+    </section>
 
-        <a href="cars.html" class="hero-btn">
-            Explore Cars
-        </a>
+    <section class="container cta">
+      <div><p class="eyebrow light">READY WHEN YOU ARE</p><h2>Your next journey starts here.</h2><p>Find your car and make room for something memorable.</p></div>
+      <a class="btn primary" href="cars.html">Browse cars ↗</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a class="brand light-brand" href="index.html"><span class="brand-mark">D</span> DriveEase<span class="dot">.</span></a>
+      <p>Make every journey count.</p>
+      <p>© <span data-year></span> DriveEase · sample project</p>
     </div>
-
-    <button id="prevSlide" class="slider-btn prev-btn">
-        &#10094;
-    </button>
-
-    <button id="nextSlide" class="slider-btn next-btn">
-        &#10095;
-    </button>
-</section>
-        <section class="featured-cars">
-    <div class="section-title">
-        <h2>Featured Cars</h2>
-        <p>Choose the perfect car for your journey.</p>
-    </div>
-
-    <div class="car-container">
-
-        <div class="car-card">
-            <img src="images/car1.jpg" alt="BMW 3 Series">
-            <div class="car-info">
-                <h3>BMW 3 Series</h3>
-                <p>Luxury • Automatic • 5 Seats</p>
-                <h4>₹4,500 / Day</h4>
-                <a href="details.html" class="car-btn">View Details</a>
-            </div>
-        </div>
-
-        <div class="car-card">
-            <img src="images/car2.jpg" alt="Mercedes Benz C-Class">
-            <div class="car-info">
-                <h3>Mercedes Benz C-Class</h3>
-                <p>Luxury • Automatic • 5 Seats</p>
-                <h4>₹5,500 / Day</h4>
-                <a href="details.html" class="car-btn">View Details</a>
-            </div>
-        </div>
-
-        <div class="car-card">
-            <img src="images/car3.jpg" alt="Toyota Fortuner">
-            <div class="car-info">
-                <h3>Toyota Fortuner</h3>
-                <p>SUV • Automatic • 7 Seats</p>
-                <h4>₹4,000 / Day</h4>
-                <a href="details.html" class="car-btn">View Details</a>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-    <section class="rental-search">
-        <div class="section-title">
-            <h2>Find Your Perfect Car</h2>
-            <p>Enter your rental details and find a car that suits you.</p>
-        </div>
-
-    <form id="searchForm" class="search-form">
-
-        <div class="form-group">
-            <label for="pickupLocation">Pickup Location</label>
-            <input type="text" id="pickupLocation" placeholder="Enter pickup location" required>
-        </div>
-
-        <div class="form-group">
-            <label for="pickupDate">Pickup Date</label>
-            <input type="date" id="pickupDate" required>
-        </div>
-
-        <div class="form-group">
-            <label for="returnDate">Return Date</label>
-            <input type="date" id="returnDate" required>
-        </div>
-
-        <button type="submit" class="search-btn">Search Cars</button>
-
-    </form>
-
-    <p id="searchMessage"></p>
-
-</section>
-
-
-<section class="testimonials">
-
-    <div class="section-title">
-        <h2>What Our Customers Say</h2>
-        <p>See what our customers think about their experience.</p>
-    </div>
-
-    <div class="testimonial-container">
-
-        <div class="testimonial-card">
-            <p>
-                "The booking process was very easy and the car
-                was clean and comfortable."
-            </p>
-
-            <h3>Rahul</h3>
-            <span>Customer</span>
-        </div>
-
-        <div class="testimonial-card">
-            <p>
-                "Great selection of cars and excellent service.
-                I would definitely rent again."
-            </p>
-
-            <h3>Anita</h3>
-            <span>Customer</span>
-        </div>
-
-        <div class="testimonial-card">
-            <p>
-                "The entire experience was smooth and hassle-free.
-                Highly recommended!"
-            </p>
-
-            <h3>Arjun</h3>
-            <span>Customer</span>
-        </div>
-
-    </div>
-
-</section>
-   
-<section class="faq">
-
-    <div class="section-title">
-        <h2>Frequently Asked Questions</h2>
-        <p>Find answers to common questions about our car rental service.</p>
-    </div>
-
-    <div class="faq-container">
-
-        <div class="faq-item">
-            <button class="faq-question">
-                What documents do I need to rent a car?
-                <span>+</span>
-            </button>
-
-            <div class="faq-answer">
-                <p>
-                    You need a valid driving licence and a valid
-                    identification document.
-                </p>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-question">
-                Can I cancel my booking?
-                <span>+</span>
-            </button>
-
-            <div class="faq-answer">
-                <p>
-                    Yes, bookings can be cancelled according to
-                    the applicable cancellation policy.
-                </p>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-question">
-                Can I choose a specific car?
-                <span>+</span>
-            </button>
-
-            <div class="faq-answer">
-                <p>
-                    Yes. You can select your preferred car from
-                    our available vehicles.
-                </p>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-question">
-                How do I make a booking?
-                <span>+</span>
-            </button>
-
-            <div class="faq-answer">
-                <p>
-                    Select a car, choose your rental dates,
-                    enter your details, and confirm your booking.
-                </p>
-            </div>
-        </div>
-
-    </div>
-
-</section>
- <button id="backToTop">↑</button>
-    <script src="js/script.js"></script>
+  </footer>
 </body>
 </html>

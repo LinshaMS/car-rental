@@ -1,74 +1,138 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10151f">
+  <meta name="description" content="Explore the DriveEase car collection, compare rental prices, and find a car for your next journey.">
+  <title>Our Cars | DriveEase</title>
 
-    <title>Cars - Car Rental</title>
-
-    <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
 </head>
 
 <body>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="index.html" aria-label="DriveEase home">
+        <span class="brand-mark">D</span>
+        <span>DriveEase<span class="dot">.</span></span>
+      </a>
 
-    <header>
-        <nav class="navbar">
-            <div class="logo">Car Rental</div>
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Toggle navigation"
+        aria-expanded="false">
+        ☰
+      </button>
 
-<button class="menu-btn" id="menuBtn">☰</button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a class="active" href="cars.html" aria-current="page">Our Cars</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a class="nav-cta" href="booking.html">Book a car ↗</a>
+      </div>
+    </nav>
+  </header>
 
-<ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="cars.html">Cars</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="booking.html">Booking</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
+  <main>
+    <section class="page-hero cars-hero">
+      <div class="container">
+        <p class="eyebrow light">THE FLEET</p>
+        <h1>Find your kind of drive.</h1>
+        <p>
+          From everyday comfort to weekend adventures,
+          discover a car that fits your plans.
+        </p>
+      </div>
+    </section>
 
-            <button id="darkModeBtn">🌙</button>
-        </nav>
-    </header>
+    <section class="section container cars-section">
+      <div class="listing-toolbar">
+        <div class="listing-heading">
+          <p class="eyebrow">EXPLORE THE COLLECTION</p>
+          <h2>Our cars<span class="dot">.</span></h2>
+          <p class="muted" id="carCount">Explore our available vehicles</p>
+        </div>
 
-    <main>
+        <div class="filters">
+          <label class="search-control">
+            <span class="visually-hidden">Search cars</span>
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <input
+              id="carSearch"
+              type="search"
+              placeholder="Search cars..."
+              aria-label="Search cars">
+          </label>
 
-        <section class="cars-page">
-            <div class="section-title">
-                <h1>Our Cars</h1>
-                <p>Choose the perfect car for your journey.</p>
-            </div>
+          <label class="select-control">
+            <span class="visually-hidden">Filter by vehicle type</span>
+            <select id="categoryFilter" aria-label="Filter by vehicle type">
+              <option value="all">All types</option>
+              <option value="city">City</option>
+              <option value="comfort">Comfort</option>
+              <option value="suv">SUV</option>
+              <option value="premium">Premium</option>
+            </select>
+          </label>
 
-            <div class="car-controls">
+          <label class="select-control">
+            <span class="visually-hidden">Sort vehicles</span>
+            <select id="sortCars" aria-label="Sort vehicles">
+              <option value="featured">Featured</option>
+              <option value="low">Price: low to high</option>
+              <option value="high">Price: high to low</option>
+              <option value="name">Name: A to Z</option>
+            </select>
+          </label>
+        </div>
+      </div>
 
-                <input
-                    type="text"
-                    id="carSearch"
-                    placeholder="Search for a car..."
-                >
+      <div id="allCars" class="car-grid" aria-live="polite"></div>
 
-                <select id="categoryFilter">
-                    <option value="all">All Categories</option>
-                    <option value="Luxury">Luxury</option>
-                    <option value="SUV">SUV</option>
-                    <option value="Sedan">Sedan</option>
-                </select>
+      <div id="noCars" class="empty-state" hidden>
+        <h3>No cars found</h3>
+        <p>Try another search term or choose a different vehicle type.</p>
+        <button class="btn primary" id="resetCarFilters" type="button">
+          Clear filters
+        </button>
+      </div>
+    </section>
 
-                <select id="priceSort">
-                    <option value="default">Sort by Price</option>
-                    <option value="low-high">Price: Low to High</option>
-                    <option value="high-low">Price: High to Low</option>
-                </select>
+    <section class="cars-bottom container">
+      <div>
+        <p class="eyebrow light">YOUR NEXT JOURNEY</p>
+        <h2>Found your kind of drive?</h2>
+        <p>Choose your vehicle and start planning your trip.</p>
+      </div>
+      <a class="btn primary" href="booking.html">Start a booking ↗</a>
+    </section>
+  </main>
 
-            </div>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a class="brand light-brand" href="index.html">
+          <span class="brand-mark">D</span>
+          <span>DriveEase<span class="dot">.</span></span>
+        </a>
 
-            <div id="carsContainer" class="car-container">
-                <!-- Cars will be added using JavaScript -->
-            </div>
+        <p>Thoughtful journeys start with the right ride.</p>
 
-        </section>
+        <a class="footer-top-link" href="#top"
+           onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+          Back to top ↑
+        </a>
+      </div>
 
-    </main>
-<button id="backToTop">↑</button>
-    <script src="js/script.js"></script>
-
+      <div class="footer-bottom">
+        <span>© <span data-year></span> DriveEase</span>
+        <span>Designed as a car rental sample project.</span>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
