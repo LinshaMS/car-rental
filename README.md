@@ -30,4 +30,4 @@ This is a front-end demonstration project. Booking requests are stored locally i
 
 ## Author
 
-Developed as a web development portfolio project.
+Developed as a web development project.
